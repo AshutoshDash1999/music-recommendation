@@ -4,23 +4,31 @@ import { useState } from "react";
 
 var musicDB = {
   All: [
-    { name: "Follow You"},
-    { name: "Wrecked"},
-    { name: "Believer"},
-    { name: "Radioactive"},
-    { name: "Demons"},
-    { name: "Thunder"},
-    { name: "Birds"},
-    { name: "Stronger"},
-    { name: "Glory"},
-    { name: "Born For This"},
-    { name: "The Champion"},
-    { name: "On and On"},
-    { name: "In My Bones"},
-    { name: "Dreamin (with blackbear"},
-    { name: "Call Out My Name"},
-    { name: "Binding Lights"},
-    { name: "In Your Eyes"}
+    { name: "Follow You - Imagine Dragons"},
+    { name: "Wrecked - Imagine Dragons"},
+    { name: "Believer - Imagine Dragons"},
+    { name: "Radioactive - Imagine Dragons"},
+    { name: "Demons - Imagine Dragons"},
+    { name: "Thunder - Imagine Dragons"},
+    { name: "Birds - Imagine Dragons"},
+    { name: "1+1 - Sia"},
+    { name: "Courage To Change - Sia"},
+    { name: "Elastic Heart - Sia"},
+    { name: "Cheap Thrills - Sia"},
+    { name: "Chandelier - Sia"},
+    { name: "Unstoppable - Sia"},
+    { name: "Never Give Up - Sia"},
+    { name: "Dusk Till Dawn - Sia, Zayn"},
+    { name: "Stronger - The Score"},
+    { name: "Glory - The Score"},
+    { name: "Born For This - The Score"},
+    { name: "The Champion - The Score"},
+    { name: "On and On - The Score"},
+    { name: "In My Bones - The Score"},
+    { name: "Dreamin (with blackbear) - The Score"},
+    { name: "Call Out My Name - The Weekend"},
+    { name: "Binding Lights - The Weekend"},
+    { name: "In Your Eyes - The Weekend"}
   ],
   ImagineDragons: [
     { name: "Follow You"},
@@ -66,7 +74,7 @@ var musicDB = {
 };
 
 export default function App() {
-  const [selectedGenre, setGenre] = useState("All");
+  const [selectedArtist, setGenre] = useState("All");
   function genreClickHandler(genre) {
     setGenre(genre);
   }
@@ -99,7 +107,7 @@ export default function App() {
       </div>
       <div style={{ textAlign: "left" }}>
         <ul style={{ paddingInlineStart: "0" }}>
-          {musicDB[selectedGenre].map((song) => (
+          {musicDB[selectedArtist].map((song) => (
             <li
             key={song.name}
             style={{
