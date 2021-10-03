@@ -4,90 +4,70 @@ import { useState } from "react";
 
 var musicDB = {
   All: [
-    { name: "Follow You - Imagine Dragons"},
-    { name: "Wrecked - Imagine Dragons"},
-    { name: "Believer - Imagine Dragons"},
-    { name: "Radioactive - Imagine Dragons"},
-    { name: "Demons - Imagine Dragons"},
-    { name: "Thunder - Imagine Dragons"},
-    { name: "Birds - Imagine Dragons"},
-    { name: "1+1 - Sia"},
-    { name: "Courage To Change - Sia"},
-    { name: "Elastic Heart - Sia"},
-    { name: "Cheap Thrills - Sia"},
-    { name: "Chandelier - Sia"},
-    { name: "Unstoppable - Sia"},
-    { name: "Never Give Up - Sia"},
-    { name: "Dusk Till Dawn - Sia, Zayn"},
-    { name: "Stronger - The Score"},
-    { name: "Glory - The Score"},
-    { name: "Born For This - The Score"},
-    { name: "The Champion - The Score"},
-    { name: "On and On - The Score"},
-    { name: "In My Bones - The Score"},
-    { name: "Dreamin (with blackbear) - The Score"},
-    { name: "Call Out My Name - The Weekend"},
-    { name: "Binding Lights - The Weekend"},
-    { name: "In Your Eyes - The Weekend"}
+    { name: "Follow You - Imagine Dragons", rating: "3/5", url: ""},
+    { name: "Wrecked - Imagine Dragons", rating: "3/5", url: ""},
+    { name: "Believer - Imagine Dragons", rating: "3/5", url: ""},
+    { name: "Radioactive - Imagine Dragons", rating: "3/5", url: ""},
+    { name: "Demons - Imagine Dragons", rating: "3/5", url: ""},
+    { name: "1+1 - Sia", rating: "5/5", url: ""},
+    { name: "Courage To Change - Sia", rating: "3/5", url: ""},
+    { name: "Elastic Heart - Sia", rating: "3/5", url: ""},
+    { name: "Cheap Thrills - Sia", rating: "4/5", url: ""},
+    { name: "Chandelier - Sia", rating: "4/5", url: ""},
+    { name: "Unstoppable - Sia", rating: "4/5", url: ""},
+    { name: "Stronger - The Score", rating: "4/5", url: ""},
+    { name: "Glory - The Score", rating: "", url: "4/5"},
+    { name: "Born For This - The Score", rating: "4/5", url: ""},
+    { name: "The Champion - The Score", rating: "4/5", url: ""},
+    { name: "On and On - The Score", rating: "", url: "4/5"},
+    { name: "Call Out My Name - The Weekend", rating: "4/5", url: ""},
+    { name: "Binding Lights - The Weekend", rating: "4/5", url: ""},
+    { name: "In Your Eyes - The Weekend", rating: "4/5", url: ""}
   ],
   ImagineDragons: [
-    { name: "Follow You"},
-    { name: "Wrecked"},
-    { name: "Believer"},
-    { name: "Radioactive"},
-    { name: "Demons"},
-    { name: "Thunder"},
-    { name: "Birds"},
-    { name: "1+1"},
-    { name: "Courage To Change"},
-    { name: "Elastic Heart"},
-    { name: "Cheap Thrills"},
-    { name: "Chandelier"},
-    { name: "Unstoppable"},
-    { name: "Never Give Up"},
-    { name: "Dusk Till Dawn"}
+    { name: "Follow You", rating: "5/5", url: ""},
+    { name: "Wrecked", rating: "", url: ""},
+    { name: "Believer", rating: "5/5", url: ""},
+    { name: "Radioactive", rating: "4/5", url: ""},
+    { name: "Demons", rating: "4/5", url: ""}
   ],
   Sia: [
-    { name: "1+1"},
-    { name: "Courage To Change"},
-    { name: "Elastic Heart"},
-    { name: "Cheap Thrills"},
-    { name: "Chandelier"},
-    { name: "Unstoppable"},
-    { name: "Never Give Up"},
-    { name: "Dusk Till Dawn"}
+    { name: "1+1", rating: "5/5", url: ""},
+    { name: "Courage To Change", rating: "5/5", url: ""},
+    { name: "Elastic Heart", rating: "4/5", url: ""},
+    { name: "Cheap Thrills", rating: "4/5", url: ""},
+    { name: "Chandelier", rating: "4/5", url: ""}
   ],
   TheWeekend: [
-    { name: "Call Out My Name"},
-    { name: "Binding Lights"},
-    { name: "In Your Eyes"}
+    { name: "Call Out My Name", rating: "5/5", url: ""},
+    { name: "Binding Lights", rating: "4/5", url: ""},
+    { name: "In Your Eyes", rating: "4/5", url: ""}
   ],
   TheScore: [
-    { name: "Stronger"},
-    { name: "Glory"},
-    { name: "Born For This"},
-    { name: "The Champion"},
-    { name: "On and On"},
-    { name: "In My Bones"},
-    { name: "Dreamin (with blackbear"}
+    { name: "Stronger", rating: "5/5", url: ""},
+    { name: "Glory", rating: "4/5", url: ""},
+    { name: "On and On", rating: "4/5", url: ""},
+    { name: "In My Bones", rating: "5/5", url: ""},
+    { name: "Dreamin (with blackbear)", rating: "5/5", url: ""}
   ],
 };
 
 export default function App() {
-  const [selectedArtist, setGenre] = useState("All");
-  function genreClickHandler(genre) {
-    setGenre(genre);
+  const [selectedArtist, setSelectedArtist] = useState("All");
+
+  function artistClickHandler(artistName) {
+    setSelectedArtist(artistName);
   }
   return (
     <div className="App">
       <div className="App-header">
 
-      <h1>Music Recommendations</h1>{" "}
+      <h1>Music Recommendations</h1>
       <p style={{ fontSize: "medium" }}>
-        Checkout my favorite songs. Select an artist to get started{" "}
+        Checkout my favorite songs. Select an artist to get started
       </p>
       <div>
-        {Object.keys(musicDB).map((genre) => (
+        {Object.keys(musicDB).map((artistName) => (
           <button
           style={{
             cursor: "pointer",
@@ -98,10 +78,9 @@ export default function App() {
             margin: "1rem 0.3rem",
             color: "white"
             }}
-            onClick={() => genreClickHandler(genre)}
+            onClick={() => artistClickHandler(artistName)}
             >
-            {" "}
-            {genre}
+            {artistName}
           </button>
         ))}
       </div>
@@ -120,8 +99,8 @@ export default function App() {
               background: "#15171b"
             }}
             >
-              {" "}
-              <div style={{ fontSize: "large" }}>{song.name}</div>
+              <a href={song.url} style={{ fontSize: "large", color: "white" }}>{song.name}</a>
+              <div style={{ fontSize: "large" }}>{song.rating}</div>
             </li>
           ))}
         </ul>
